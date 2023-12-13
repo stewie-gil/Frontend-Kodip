@@ -1,0 +1,39 @@
+
+.nav-bar{
+    position: fixed;
+    width: 85%;
+    left: 7.5%;
+    /* border: 1px solid red; */
+    padding: 10px 0;
+    display: flex;
+    gap: 40%;
+    align-items: center;
+}
+.nav-links{
+    display: flex;
+    gap: 50px;
+}
+.nav-links ul{
+    list-style: none;
+}
+.nav-links ul li{
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    background: #06F666;
+    display: flex;
+    padding: 8px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    color: #113206;
+    font-family: Lexend;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    align-items: center;
+    cursor: pointer;
+}
+.signup{
+    background: var(--green-100, #D1FAE5) !important;
+}
