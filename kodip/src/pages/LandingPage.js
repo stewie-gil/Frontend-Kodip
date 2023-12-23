@@ -1,8 +1,11 @@
 import React from 'react';
+import TipsTricks from '../components/tips-tricks/TipsTricks';
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <div style={{paddingTop: "100px"}}>
+      <TipsTricks />
+    </div>
   )
 }
 

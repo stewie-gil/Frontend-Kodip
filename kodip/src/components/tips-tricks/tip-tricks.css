@@ -1,0 +1,106 @@
+.tips-tricks{
+    width: 85%;
+    margin: 0 auto;
+}
+.tip-tricks_head p{
+    color: var(--Yellow-500, #F59E0B);
+    text-align: center;
+    font-family: Lexend;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    padding-top: 10px;
+}
+.line{
+    border: 1px solid #F59E0B;
+    width: 32px;
+    margin: 0 auto;
+}
+.tip-tricks_head h2{
+    color: var(--MRT-App-Headline, #1B1C57);
+    text-align: center;
+    font-family: Lexend;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    padding: 16px 0;
+    /* width: 30%;
+    margin: 0 auto; */
+}
+.tip-btn_cont{
+    display: flex;
+    justify-content: center;
+}
+.tips-tricks_body{
+    padding: 20px 0;
+    display: flex;
+    gap: 70px;
+}
+.tips-card{
+    display: flex;
+    gap: 20px;
+}
+.tips-tricks_body-left{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 40%;
+}
+.tips-card_text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+}
+.cards-name{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.cards-name p{
+    color: var(--Neutral-700, #3C4563);
+    font-family: Lexend;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}
+.tips-card_text p{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--Neutral-500, #888B97);
+    font-family: Lexend;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.tips-card_text h3{
+    color: var(--MRT-App-Headline, #1B1C57);
+    font-family: Lexend;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; /* 177.778% */
+    text-transform: capitalize;
+    /* width: 70%; */
+}
+.tips-tricks_body-right{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 55%;
+}
+.tips-card_text h4{
+    color: var(--MRT-App-Neutral-01, #626687);
+    font-family: Lexend;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
