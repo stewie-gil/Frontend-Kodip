@@ -44,7 +44,7 @@ const TipsTricks = () => {
           Find out more about <br /> selling and buying homes
         </h2>
         <div className="tip-btn_cont">
-          <button className="btn">More Artikel</button>
+          <button className="btn">More Article</button>
         </div>
       </div>
       <div className="tips-tricks_body">
