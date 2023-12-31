@@ -28,3 +28,9 @@ Welcome to the KODIP React Frontend App! This project utilizes React and follows
 ├── .gitignore
 ├── package.json
 └── README.md
+
+## How to install
+
+1. Clone the repo to your Local machine.
+2. Run "npm install" to install dependencies
+3. Run "npm start"
