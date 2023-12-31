@@ -20,6 +20,15 @@ input,button,select,textarea{
   outline: none;
   background: transparent;
 }
+.block{
+  display: block !important;
+}
+.flex{
+  display: flex !important;
+}
+.none{
+  display: none !important;
+}
 
 .logo{
   display: flex;
@@ -49,5 +58,12 @@ input,button,select,textarea{
   align-items: center;
   gap: 16px;
   cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+  .btn{
+    font-size: 14px;
+  }
 }
 

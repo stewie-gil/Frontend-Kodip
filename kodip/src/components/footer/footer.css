@@ -79,3 +79,29 @@
     bottom: 15px;
     z-index: -1;
 }
+
+@media (max-width: 900px) {
+    .footer{
+        flex-direction: column;
+        width: 90%;
+        gap: 30px;
+    }
+    .footer-left, .footer-right{
+        width: 100%;
+    }
+    .footer-left .logo img{
+        width: 131px;
+        height: 115px;
+    }
+    .footer-left p{
+        width: 95%;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .footer-social_links{
+        justify-content: center;
+    }
+    .footer-right_gradient, .footer-right_gradient2{
+        display: none;
+    }
+}

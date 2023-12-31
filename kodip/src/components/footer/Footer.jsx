@@ -62,7 +62,6 @@ const Footer = () => {
       <div className="footer-left">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <h2>Kodip</h2>
         </div>
         <p>We provide information about properties such as houses, villas and apartments to help people find their dream home</p>
         <div className="footer-social_links">
