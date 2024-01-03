@@ -1,0 +1,123 @@
+
+.ready-rent{
+    width: 94%;
+    margin: 0 auto;
+    padding: 20px 0 70px;
+}
+.ready-rent_left{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.ready-rent_left h2{
+    color: var(--MRT-App-Headline, #1B1C57);
+    font-family: Lexend;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    width: 85%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.ready-rent_left p{
+    color: var(--MRT-App-Neutral-01, #626687);
+    font-family: Lexend;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+}
+.ready-rent_left h4{
+    color: var(--MRT-App-Headline, #1B1C57);
+    font-family: Lexend;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 175% */
+}
+.ready-rent_left h5{
+    color: var(--Neutral-700, #3C4563);
+    font-family: Lexend;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ready-rent_left h5 span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.rent-left_line{
+    background: var(--Neutral-100, #F0F3FD);
+    height: 2px;
+    margin: 20px 0;
+}
+.ready-rent-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.house-spec{
+    width: 60%;
+}
+.house-details{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    padding: 20px 0 0;
+}
+.rent-btn{
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+}
+.rating{
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    position: absolute;
+    left: 45%;
+    bottom: -30px;
+}
+.rating p{
+    color: var(--Neutral-700, #3C4563);
+    font-family: Lexend;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 140% */
+}
+
+@media (max-width: 900px) {
+    .ready-rent_left{
+        width: 100%;
+    }
+    .ready-rent-body{
+        flex-direction: column;
+    }
+    .ready-rent_left h2{
+        width: 100%;
+        font-size: 30px;
+    }
+    .house-details{
+        width: 100%;
+    }
+    .house-spec{
+        width: 100%;
+    }
+    .rent-btn{
+        bottom: 0;
+        right: 0;
+    }
+}
