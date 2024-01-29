@@ -5,30 +5,32 @@ import "./navbar.css";
 import { ArrowDown2, CloseSquare, HambergerMenu } from "iconsax-react";
 import useOverlay from "../../hooks/useOverlay";
 
+import LoginForm from "../../pages/loginForm";
+
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const { overlay, setOverlay } = useOverlay();
 
   const navLink = [
     {
-      name: "About us",
+      name: "Get Recommendations",
       link: "",
       icon: "",
     },
     {
-      name: "Article",
+      name: "List Your Property",
       link: "",
       icon: "",
     },
     {
-      name: "Property",
+      name: "Notifications",
       link: "",
-      icon: <ArrowDown2 color="white" size={16} />,
+      icon: "",
     },
     {
       name: "Sign up",
       link: "",
-      icon: "",
+      icon: <ArrowDown2 color="white" size={16} />,
     },
   ];
 
@@ -44,17 +46,21 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className="nav-links">
+          <LoginForm className='signup'/>
           {navLink.map((item, idx) => {
             return (
               <ul key={idx}>
                 <li className={item.name === "Sign up" ? "signup" : undefined}>
                   {item.name} {item.icon}
+                 
                 </li>
               </ul>
             );
           })}
+          
         </div>
       </div>
+
       <div className="mobile-nav">
         <div className="mobile-logo">
           <img src={logo} alt="logo" />

@@ -1,0 +1,45 @@
+
+  /* Style the message app */
+  .message-button{
+    background: black;
+    border-radius: 5px;
+    position: relative;
+    top: 150px;
+    height: 50px;
+
+  }
+
+  .message-app {
+
+background-color: rgba(161, 208, 247, 0.685);
+left: 100px;
+z-index: 4;
+position: absolute;
+border-radius: 0px;
+top: 120px;
+display:flex;
+
+width: 800px;
+height: 600px;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .message-app {
+        width: 600px;
+        height: 500px;
+    }
+}
+  
+
+  
+
+.thirdrow{
+ 
+  background-color: #ffffffdb;
+  width: 30%;
+  min-width: 20px;
+  display: flex;
+  height :100%;
+  position: relative;
+}
+
