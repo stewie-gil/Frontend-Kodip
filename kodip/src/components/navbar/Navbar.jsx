@@ -5,7 +5,7 @@ import "./navbar.css";
 import { ArrowDown2, CloseSquare, HambergerMenu } from "iconsax-react";
 import useOverlay from "../../hooks/useOverlay";
 
-import LoginForm from "../../pages/loginForm";
+import LoginForm from "../login/login";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -70,6 +70,7 @@ const Navbar = () => {
           <div className="close-icon">
             <CloseSquare onClick={openMenu} />
           </div>
+          
           <div className="nav-links">
             {navLink.map((item, idx) => {
               return (

@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+
+import React, { useRef, memo, createContext, useContext, useEffect, useState } from 'react';
 
 import io from 'socket.io-client';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+
 
 export const SocketContext = createContext();
 
@@ -20,96 +22,88 @@ export const SocketProvider = ({children}) =>{
     const [chatHistory, setChatHistory] = useState([]);
     const [isMessageModalOpen, setMessageModalOpen] = useState(false);
     const [userfrompin ,SetUserFromPin] = useState([])
+    const [login ,setLogin] = useState(false)
+    const [logout ,setLogout] = useState(false)
     
-
+    const isFirstMount = useRef(true);
     const serverURL = 'http://localhost:3002';
     const socket = io(serverURL);
 
 
 
-   
+console.log('when socket provider loads login:', login)
 
-
-
-//console.log(localStorage)
 useEffect(() => {
-    // Handle connecting to the server and receiving online users
-    //connect event is automatically emited by the client when it connects to a server.
-    socket.on('connect', () => {
-      console.log('Socket.io connection established');
-//
+  socket.on('connectnow', () => {
+    console.log('Socket.io connection established');
+    console.log('How does our localstorage look like?',localStorage)
 
-      //we will want to check if user is authenticated later on
-
-if(localStorage.userid){
-  //console.log('doing a get', localStorage.userid)
-setEmail(localStorage.email)
-setUserName(localStorage.username)
-
-const userobj = {
-  email: localStorage.email,
-  username: localStorage.username,
-  userid: localStorage.userid,
-  profilepic: localStorage.profilepic
-}
-
-//setUsers([...users, userobj]);
-//sends the current user to the server to include them as part of the loggedin users
-socket.emit('user login', userobj);
-//console.log("user object", userobj)
-
-
-}
-      //
-    });
-
-    // recieve a list of all the online online  users 
-    socket.on('online users', (users) => {
-      console.log("online users received", users);
-      setOnlineUsers(users);
-    });
-  }, []);
+//Important: this is temporary, look into this later
+// maybe check if the token is valid before logging in the user again. 
+    if (login === true ) {
+      setEmail(localStorage.email);
+      setUserName(localStorage.username);
+  
+      const userobj = {
+        email: localStorage.email,
+        username: localStorage.username,
+        userid: localStorage.userid,
+        profilepic: localStorage.profilepic,
+      };
+  
+      socket.emit('user login', userobj);
+      console.log("we'll trigger login");
+  
+    }
+  });  
+}, []);
 
 
-//send the users details to the server if the user changes login credentials
+
+
 useEffect(()=>{
+//skip this on initial mount. only wait till login change
 
-  if(localStorage.userid){
-    //console.log('doing a get', localStorage.userid)
-  setEmail(localStorage.email)
-  setUserName(localStorage.username)
- 
-  const userobj = {
-    email: localStorage.email,
-    username: localStorage.username,
-    userid: localStorage.userid,
-    profilepic: localStorage.profilepic
-  }
-  
-
-//setUsers([...users, userobj]);
-//sends the current user to the server to include them as part of the loggedin users
-socket.emit('user login', userobj);
-//console.log("user object", userobj)
-  
-
+if(isFirstMount.current){
+  isFirstMount.current = false;
+  return;
 }
+  
 
-}, [localStorage.userid]);
+  //trigger login event when the login token changes
+  if (login) {
+    setEmail(localStorage.email);
+    setUserName(localStorage.username);
 
+    const userobj = {
+      email: localStorage.email,
+      username: localStorage.username,
+      userid: localStorage.userid,
+      profilepic: localStorage.profilepic,
+    };
 
+    socket.emit('user login', userobj);
+    console.log("we'll trigger login");
+      } 
+  
+  if(!login){
+    socket.emit('logout', localStorage.userid)
+    console.log("we'll trigger logout", localStorage.userid );
+    localStorage.setItem('token', '')
+    localStorage.setItem('userid', '')
+    }
+    socket.on('online users', (users) => {
+    setOnlineUsers(users);
+    console.log('online users recieved', users)
+    });
+    }, [login])
 
-  // Handle receiving private messages from the server
-  //listening in on messages being sent
-  // ...
 
 // Handle receiving private messages from the server
 
-useEffect(() => {
-  console.log('Setting up private message listener');
 
   const privateMessageHandler = ({ sender, reciever, message, status, messageid }) => {
-    //console.log('Private message received:', sender, reciever, message);
+    console.log('Private message received:', sender, reciever, message);
     
     const newReceivedMessage = {
       sender,
@@ -122,54 +116,28 @@ useEffect(() => {
     setMessages((prevMessages) => [...prevMessages, newReceivedMessage]);
     console.log('Message received:', newReceivedMessage);
 
-    // when a user recieves a new message we send back the confirmation to server that it was recieved by the user
-    // To do: implement notification badge on the contact and elsewhere as needed.
-    
-
-    // note the one who sent the message to us and put the badge on top of their name
     const unreadmessagesbadge = {
       unread: 10, 
       senderId: newReceivedMessage.sender.senderId
     }
 
-   // Letting the server know the message was received
+   //Letting the server know the message was received
     socket.emit('A new Message recieved', newReceivedMessage)
-    //console.log('Letting the server know the message was received sent a notification for New Message recieved', newReceivedMessage)
+    console.log('Letting the server know the message was received sent a notification for New Message recieved', newReceivedMessage)
     
   };
 
   socket.on('A private message', privateMessageHandler);
 
   //return function will run during unmounting to clean up the listener.
-  return () => {
-    console.log('Cleaning up private message listener');
-    socket.off('A private message', privateMessageHandler);
-  };
+  
 
 
-}, []);
+
 
 //Handle notification for the messages we sent to a user
 socket.on('Your message was recieved', (newReceivedMessage)=>{
   
-  /*
-   newReceivedMessage = {
-    sender,
-    reciever,
-    message,
-    timestamp: new Date().toLocaleTimeString(),
-    messageid,
-    status : {
-      recieved: true,
-      read: false
-    }
-  };
-  */
-  //To do: implement double grey ticks on the message on chat component
-  //console.log('Your message was recieved, will do double grey ticks here', newReceivedMessage)
-
-    
-
     setMessages(previousMessages=>{
 return  previousMessages.map(message=>{
    
@@ -291,7 +259,7 @@ console.log('how many time is messmodalfunction getting called/running', user.da
 
 
 
-const values = {
+  const values = {
     messages, setMessages,
     newMessage, setNewMessage,
     userName, setUserName,
@@ -303,9 +271,11 @@ const values = {
     sentMessage, setSentMessage,
     chatHistory, setChatHistory,
     isMessageModalOpen, setMessageModalOpen,
-    userfrompin ,SetUserFromPin
-    
-
+    userfrompin ,SetUserFromPin,
+    login, setLogin,
+    logout, setLogout,
+    sendMessage,
+    readnotification
     }
 
     return (
@@ -315,3 +285,6 @@ const values = {
     )
 
 }
+
+
+

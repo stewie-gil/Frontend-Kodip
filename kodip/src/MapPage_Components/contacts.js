@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './contacts.css';
 
+
+console.log('contacts render')
 // Individual Contact Component
 const ContactItem = ({ user, onClick, unreadCount, latestMessageSnippet }) => (
   <li onClick={() => onClick(user)}>

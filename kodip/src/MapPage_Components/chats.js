@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './chat.css';
 import SendMessage from './sendMessage';
 
-
+console.log('chats render')
 
 function Chats({selectedUser, selectMessages, newMessage, setNewMessage, handleclicksend}){
     

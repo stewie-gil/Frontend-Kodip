@@ -8,14 +8,16 @@ import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 import MessageApp from './Envelope';
-
+import { useSocketContext } from '../hooks/useSocketContext.js';
 
 const SideBar = () => {
 const [openEnvelope, setOpenEnvelope] = useState(false);
 
+const { onlineUsers, send, setMessages, messages, readnotification } = useSocketContext()
 
-
-    const handleClickEnvelope = () =>{
+console.log('sidebar render')
+    const handleClickEnvelope = (event) =>{
+      event.preventDefault();
         
         if(openEnvelope === false){
             setOpenEnvelope(true);
@@ -23,9 +25,20 @@ const [openEnvelope, setOpenEnvelope] = useState(false);
         } else{
             setOpenEnvelope(false)
         }
-        
-
     }
+
+
+const handleClickBuilding= (event)=>{
+  event.preventDefault()
+if (messages === 'now'){
+  setMessages('');
+} else{
+  setMessages('now');
+}
+  
+
+
+}
 
 
   return (
@@ -36,14 +49,15 @@ const [openEnvelope, setOpenEnvelope] = useState(false);
 
          <FontAwesomeIcon icon={faHouse} className= 'icons' />
          <FontAwesomeIcon icon={faEnvelope}  className= 'icons'  onClick={handleClickEnvelope}/>
-         <FontAwesomeIcon icon={faBuilding} className='icons' />
+         <FontAwesomeIcon icon={faBuilding} className='icons'  onClick = {handleClickBuilding}/>
          <FontAwesomeIcon icon={faNewspaper} className='icons' />
          <FontAwesomeIcon icon={faMapLocationDot} className='icons' />
         
          
       </div>     
     </div>
-    { openEnvelope && <MessageApp/>}
+    { openEnvelope && <MessageApp/> 
+    }
     </>
   );
 };

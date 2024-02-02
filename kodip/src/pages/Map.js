@@ -4,7 +4,7 @@ import SideBar from '../MapPage_Components/sidebar';
 import SearchBar from './searchbar';
 
 
-
+console.log('Map render')
 const Map = ()=>{
 
   return (

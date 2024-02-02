@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-//import "./login.css";
+import "./login.css";
 import { useSocketContext } from '../hooks/useSocketContext.js';
 
 
@@ -10,132 +10,47 @@ import { useSocketContext } from '../hooks/useSocketContext.js';
 
 function LoginForm(prop) {
   const [modalOpen, setModalOpen] = useState(false);
+
+
+//for signing up
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [username1, setUserName] = useState('');
+
+ const [loginerror, setloginerror] = useState('');
+
+  //const [username1, setUserName] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [name, setName] = useState('');
-  const [loginerror, setloginerror] = useState('');
-  const [showDropdown, setShowDropdown] = useState(false);
+  
+  
+
 
   const { login, setLogin, setLogout } = useSocketContext()
-  const handleClick = () => {setModalOpen(true);};
-  const handleClose = () => {setModalOpen(false);};
+  
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-     
-    // send request to API to create a users jwt token 
-    const loginData ={
-      email: email,
-      password: password,
-      
-      };
-    
-      axios.post('http://localhost:3002/api/user/login', loginData)
-      .then((response) =>{
-            
-      const {username, token, userid, profilepic} = response.data;
-     
-      localStorage.setItem('userid', userid);
-      localStorage.setItem('username', username);
-      localStorage.setItem('email', email);
-      localStorage.setItem('profilepic', profilepic);
-      localStorage.setItem('token', token);
-
-      setUserName(username)
-      // will check if token is invalid later etc...
-      console.log('Logged In');
-      setLogin(true); // socket IO provider context for indicating you've logged in
-      setLoggedIn(true);
-      setName(name);
-      setModalOpen(false); // Close the modal after successful login
-
-      })
-      .catch((error)=>{console.error('login fail:', error, loginData)})
-      
-    } catch (error) {
-      console.log(error);
-      setloginerror(error.message);
-    }    
-  };
-
-
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-    try {
-
-      const reigsterdata = {
-        username: name,
-        email: email,
-    password: password,
-    UserType: 'not set',
-    }
-    console.log("registering", reigsterdata)
-    
-    axios.post('http://localhost:3002/api/user/register', reigsterdata)
-    .then((response) =>{
-    console.log('register successful')
-    console.log(response.data)
-
-    localStorage.setItem('userid', response.data.user.id);
-    localStorage.setItem('username', response.data.user.username);
-    localStorage.setItem('email', response.data.user.email);
-    localStorage.setItem('profilepic', response.data.user.profilepic)
-    localStorage.setItem('token', response.data.user.token);
-    
-    console.log('Signed Up', name);
-    setLoggedIn(true);
-    setUserName(name);
-    setModalOpen(false); // Close the modal after successful sign up
-    setLogin(true); // socket IO provider context for indicating you've logged in
-    }).catch((error)=>{
-      console.error('failed to send to backend. Error:', error)
-  })
-
-    } catch (error) {
-      console.log(error);
-
-      setloginerror(error.message);
-    }
-  };
-
-
-
-  const handleLogout = async () => {
-    try {
-
-      setLogout(true);
-      console.log('Logged Out');
-
-      setLogin(false); // socket IO provider context for indicating you've logged in
-      console.log("local delete", localStorage );
-      setShowDropdown(true);
-    } catch (error) {
-      console.log(error);
-    }
-
-  };
-
-
+  //controlling the behaviour of the modal 
+const [showDropdown, setShowDropdown] = useState(false);
 const toggleDropdownTrue = () => {setShowDropdown(true);};
-
 const toggleDropdownFalse = () =>{setShowDropdown(false);}
-
+const handleClick = () => {setModalOpen(true);};
+const handleClose = () => {setModalOpen(false);};
 
 
   return (
     <div >
+        {/* If user is not logged in activitate the modal using handleclick */}
       {!isLoggedIn && (
         <button onClick={handleClick} className="button1">Login</button>
       )}
-      {
-        isLoggedIn && (
+
+        {/* If user is logged show a button with the users name 
+        if the button is clicked show the same button and another button below promptin gfor a logout 
+        
+        */}
+      {isLoggedIn && (
 
                 <div>
-          {/* Dropdown Menu */}
           <div className="dropdownContainer">
             {!showDropdown && <button onClick={toggleDropdownTrue} className="text" style={{fontSize: '18px'}}>
               Welcome {localStorage.username} 😊!
@@ -154,11 +69,7 @@ const toggleDropdownFalse = () =>{setShowDropdown(false);}
             )}
           </div>
         </div>
-
-
-
-        )
-      }
+        )}
     
       <Modal
         isOpen={modalOpen}

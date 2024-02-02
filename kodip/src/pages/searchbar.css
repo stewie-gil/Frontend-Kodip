@@ -6,7 +6,7 @@
     justify-content: center;
     display: flex;
     top: 100px;
-    left: 25vw;
+    /left: 25vw;
     border-radius : 20px;
 }
 .search-bar {

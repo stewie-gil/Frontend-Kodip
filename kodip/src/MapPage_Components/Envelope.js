@@ -1,28 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { memo, useEffect, useState, useRef } from 'react';
 import Thirdrow from './Thirdrow.js';
 import Contacts from './contacts.js';
 import './messageapp.css';
 import Chats from './chats.js';
-import { useSocketContext } from '../hooks/useSocketContext';
-
+//import {useSocketIO} from "../Socket_IO/socketIO";
+import { useSocketContext } from '../hooks/useSocketContext.js';
 
 
 function MessageApp() {
-const { onlineUsers, send, setMessages, messages, readnotification } = useSocketContext(); 
+const { onlineUsers, sendMessage, setMessages, messages, readnotification } = useSocketContext()
 
 const [selectMessages, setSelectMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [selectedUser, setSelectedUser] = useState([]);
   const [userfrompin ,SetUserFromPin] = useState([])
-  
+ 
 
 // Get the viewport width and height
 var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
 // Log the viewport dimensions to the console
-console.log('Viewport Width: ' + viewportWidth);
-console.log('Viewport Height: ' + viewportHeight);
+//console.log('Viewport Width: ' + viewportWidth);
+//console.log('Viewport Height: ' + viewportHeight);
 
 
 
@@ -33,9 +33,9 @@ console.log('Viewport Height: ' + viewportHeight);
 
   //console.log(selectedUser);
 
-    send(selectedUser, newMessage);
+  sendMessage(selectedUser, newMessage);
 
-    //console.log('After calling send function');
+    console.log('After calling send function');
 }
 
 useEffect(() => {
@@ -65,7 +65,7 @@ useEffect(()=>{
 //console.log('All messages', messages, 'Select messages', selectMessages)
 }, [selectMessages, messages])
 
-console.log('selected messages after clicking select', selectMessages) 
+//console.log('selected messages after clicking select', selectMessages) 
 
 return (        
          
@@ -99,4 +99,4 @@ return (
 
 }
 
-export default MessageApp;
+export default memo(MessageApp);

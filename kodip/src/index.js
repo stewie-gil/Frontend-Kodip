@@ -6,20 +6,23 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AppProvider } from "./context/AppProvider";
 
-
 import { SocketProvider } from "./context/SocketProvider";
+import { AuthProvider } from "./context/AuthProvider";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  
     <Router>
-      <SocketProvider>
+    <SocketProvider>
+      <AuthProvider>
       <AppProvider>
         <App />
       </AppProvider>
+      </AuthProvider>
     </SocketProvider>
     </Router>
-  </React.StrictMode>
+  
 );
 
 

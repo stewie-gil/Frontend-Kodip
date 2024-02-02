@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FaMicrophone, FaPaperclip, FaPaperPlane } from 'react-icons/fa'; // Import icons as needed
 import './sendMessage.css';
 
+
+console.log('send-message render')
 const YourComponent = ({setNewMessage, newMessage, handleclicksend}) => {
 
     /*
