@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './contacts.css';
 
+import axios from 'axios';
 
-console.log('contacts render')
+
+//console.log('contacts render')
 // Individual Contact Component
 const ContactItem = ({ user, onClick, unreadCount, latestMessageSnippet }) => (
+  
   <li onClick={() => onClick(user)}>
+      
     <div className={`contact-item ${unreadCount > 0 ? 'has-unread' : ''}`}>
       <div className="contact-details">
         <img src={user.profilepic} alt={user.username} className="profile-pix" />
@@ -29,7 +33,7 @@ function Contacts({ selectedUser, setSelectedUser, Online, setMessages, messages
   useEffect(() => {
     let newUnreadMessages = messages  
     .filter(message => message.status.read === false)
-      .map(message => ({ message, userId: message.sender.senderId }));
+      .map(message => ({ message, userId: message.sender }));
 
       
 
@@ -53,7 +57,7 @@ function Contacts({ selectedUser, setSelectedUser, Online, setMessages, messages
       // updatereplace the read messages in messages
       //maybe redundant. might want to get the updated list from the sever itself with various 
       setMessages( previousmessages => {
-        return  previousmessages.map(prevMess => prevMess.sender.senderId === selectedUser.userid ? { ...prevMess, status: { received: true, read: true } } : prevMess )
+        return  previousmessages.map(prevMess => prevMess.sender === selectedUser.userid ? { ...prevMess, status: { received: true, read: true } } : prevMess )
     })
 
 
@@ -76,9 +80,9 @@ function Contacts({ selectedUser, setSelectedUser, Online, setMessages, messages
     return Online.filter(user => user.userid !== currentUserID).map(user => {
       const userUnreadMessages = unreadMessages.filter(message => message.userId === user.userid);
       const unreadCount = userUnreadMessages.length;
-      const latestMessage = userUnreadMessages[unreadCount - 1]?.message;
+      const latestMessage = userUnreadMessages[unreadCount - 1]?.content;
 
-      const latestMessageSnippet = latestMessage ? `${latestMessage.message}` : null;
+      const latestMessageSnippet = latestMessage ? `${latestMessage.content}` : null;
 
       return { ...user, unreadCount, latestMessageSnippet };
     });

@@ -6,6 +6,10 @@ import { ArrowDown2, CloseSquare, HambergerMenu } from "iconsax-react";
 import useOverlay from "../../hooks/useOverlay";
 
 import LoginForm from "../login/login";
+import Connect from "../connect/connect";
+import ListProperty from '../ListProperty/ListProperty';
+import Notification from '../notification/notification';
+
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -13,7 +17,7 @@ const Navbar = () => {
 
   const navLink = [
     {
-      name: "Get Recommendations",
+      name: "Connect with a local",
       link: "",
       icon: "",
     },
@@ -22,16 +26,7 @@ const Navbar = () => {
       link: "",
       icon: "",
     },
-    {
-      name: "Notifications",
-      link: "",
-      icon: "",
-    },
-    {
-      name: "Sign up",
-      link: "",
-      icon: <ArrowDown2 color="white" size={16} />,
-    },
+   
   ];
 
   const openMenu = () => {
@@ -46,18 +41,20 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className="nav-links">
-          <LoginForm className='signup'/>
-          {navLink.map((item, idx) => {
+        
+         {
+            navLink.map((item, idx) => {
             return (
               <ul key={idx}>
-                <li className={item.name === "Sign up" ? "signup" : undefined}>
+                <li className= 'undefined'>
                   {item.name} {item.icon}
                  
                 </li>
               </ul>
             );
-          })}
-          
+          })
+          }
+        <LoginForm/>  
         </div>
       </div>
 

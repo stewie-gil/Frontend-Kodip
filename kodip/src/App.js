@@ -5,8 +5,10 @@ import Nopage from "./pages/Nopage";
 import Layout from "./components/layout/Layout";
 import Map from "./pages/Map";
 import Listings from "./pages/Listings";
-//import useSocketIO from "./Socket_IO/socketIO";
-
+import ListProperty from "./pages/listproperty";
+import Profile from "./pages/profileSettings";
+import Manage from "./pages/management";
+import Connect from "./pages/connect"
 
 function App(){
 
@@ -18,9 +20,17 @@ function App(){
     
       <Routes>
         <Route element={<Layout />}>
+
           <Route index element={<LandingPage />} />
           <Route path="map" element={<Map/>}/>
           <Route path="listings" element={<Listings/>}/>
+
+          
+          <Route path= "listhouse" element={<ListProperty/>}/>
+          <Route path= "profile" element={<Profile/>}/>
+          <Route path= "manage" element={<Manage/>}/>
+          <Route path= "connect" element={<Connect/>}/>
+
           <Route path="*" element={<Nopage />} />
         </Route>
       </Routes>

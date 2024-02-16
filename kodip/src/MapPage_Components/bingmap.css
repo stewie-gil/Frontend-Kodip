@@ -1,0 +1,34 @@
+.Infobox {
+    border: unset !important
+}
+
+.infoboximage{
+    border-radius: 10px;
+}
+.infobox-title{
+    display:none;
+}
+.infobox-stalk{
+    top:215.8px !important
+}
+
+.infobox-body{
+
+    max-width: 256px;
+    
+}
+.infobox-info{
+    max-height:none
+}
+.MicrosoftMap .Infobox {
+    position: relative;
+    border: 1px solid #888;
+    border-radius: 8px;
+    left: 0;
+    bottom: 117px;
+    pointer-events: auto;
+    background-color: #fff;
+    }
+.NavBar_Container{
+top: 100px !important
+}

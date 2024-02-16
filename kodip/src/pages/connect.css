@@ -1,0 +1,65 @@
+.connectPage {
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 140px;
+    top: 140px;
+   position: relative;
+   display: flex;
+    border-radius: 5px;
+    background-color: #f9f9f928;
+  }
+
+  .heroText{
+    padding:20px
+  }
+  
+  .map {
+    width: 550px;
+    height: 300px;
+    position: relative;
+}
+
+.map {
+ margin-bottom: 20px;
+}
+
+  .connect-with-owner-form h2 {
+    margin-top: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .note {
+    font-style: italic;
+    color: #666;
+  }
+  

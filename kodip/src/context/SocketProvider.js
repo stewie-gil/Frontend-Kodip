@@ -34,7 +34,7 @@ export const SocketProvider = ({children}) =>{
 console.log('when socket provider loads login:', login)
 
 useEffect(() => {
-  socket.on('connectnow', () => {
+  socket.on('connect', () => {
     console.log('Socket.io connection established');
     console.log('How does our localstorage look like?',localStorage)
 
@@ -44,13 +44,15 @@ useEffect(() => {
       setEmail(localStorage.email);
       setUserName(localStorage.username);
   
-      const userobj = {
+      const userobj = localStorage.userid;
+      
+     /* {
         email: localStorage.email,
         username: localStorage.username,
         userid: localStorage.userid,
         profilepic: localStorage.profilepic,
       };
-  
+  */
       socket.emit('user login', userobj);
       console.log("we'll trigger login");
   
@@ -94,21 +96,41 @@ if(isFirstMount.current){
     }
     socket.on('online users', (users) => {
     setOnlineUsers(users);
-    console.log('online users recieved', users)
+   //console.log('online users recieved', users)
     });
     }, [login])
 
 
-// Handle receiving private messages from the server
+    //chat History
+useEffect(()=>{
+console.log('selected usre is this one', selectedUser)
+socket.emit('askChatHistory', selectedUser.userid)
+
+}, [selectedUser])
+
+socket.on('getChatHistory', (history)=>{
+  console.log('history from get chat',history)
+})
+
+  
 
 
-  const privateMessageHandler = ({ sender, reciever, message, status, messageid }) => {
-    console.log('Private message received:', sender, reciever, message);
+    socket.on('chatHistory', (messages)=>{
+setMessages([...messages])
+
+    })
+
+
+
+    // Handle receiving private messages from the server
+
+  const privateMessageHandler = ({ sender, reciever, content, status, messageid }) => {
+    console.log('Private message received:', sender, reciever, content);
     
     const newReceivedMessage = {
       sender,
       reciever,
-      message,
+      content,
       timestamp: new Date().toLocaleTimeString(),
       status,
       messageid,
@@ -118,7 +140,7 @@ if(isFirstMount.current){
 
     const unreadmessagesbadge = {
       unread: 10, 
-      senderId: newReceivedMessage.sender.senderId
+      senderId: newReceivedMessage.sender
     }
 
    //Letting the server know the message was received
@@ -189,16 +211,12 @@ const sendMessage = (userSelected, textMessage) => {
 //first have a selected user
     if (userSelected) {
 
-      const sender = {
-      senderUserName: localStorage.username, // we'll get this from local storage
-      senderEmail: localStorage.email, // we'll get this from local storage. 
-      senderId:localStorage.userid,
-      profilepic: localStorage.profilepic
-      }
+      const sender = localStorage.userid
+      
 
       
-      const  reciever = userSelected; // this needs to be passed in
-      const  message = textMessage; // this needs to be passed in
+      const  reciever = userSelected.userid; // this needs to be passed in
+      const  content = textMessage; // this needs to be passed in
       const messageid = uuidv4() //unique id for each message
 
       const status ={
@@ -207,7 +225,7 @@ const sendMessage = (userSelected, textMessage) => {
       } 
       
 
-      socket.emit('private message', {reciever, message, sender, status, messageid });
+      socket.emit('private message', {reciever, content, sender, status, messageid });
       //console.log('reciever, message , sender', reciever, message, sender, status)
      
       setSentMessage(newMessage);

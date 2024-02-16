@@ -63,7 +63,7 @@ if (localStorage.token !== '' ){
 
       setUserName(username)
       // will check if token is invalid later etc...
-      console.log('Logged In');
+      console.log('Logged In', response.data);
       setLogin(true); // socket IO provider context for indicating you've logged in
       
       setName(name);

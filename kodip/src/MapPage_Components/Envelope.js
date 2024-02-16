@@ -8,11 +8,11 @@ import { useSocketContext } from '../hooks/useSocketContext.js';
 
 
 function MessageApp() {
-const { onlineUsers, sendMessage, setMessages, messages, readnotification } = useSocketContext()
+const { onlineUsers, sendMessage, setMessages, messages, readnotification, selectedUser, setSelectedUser } = useSocketContext()
 
 const [selectMessages, setSelectMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [selectedUser, setSelectedUser] = useState([]);
+  
   const [userfrompin ,SetUserFromPin] = useState([])
  
 
@@ -25,7 +25,7 @@ var viewportHeight = window.innerHeight || document.documentElement.clientHeight
 //console.log('Viewport Height: ' + viewportHeight);
 
 
-
+//console.log('how do messages look', messages)
 
   const handleclicksend = () => {
     //console.log('Before calling send function');
@@ -39,15 +39,15 @@ var viewportHeight = window.innerHeight || document.documentElement.clientHeight
 }
 
 useEffect(() => {
-
+//console.log('message and selected user', selectedUser)
   let newselectMessages = [];
 
 if (selectedUser){
     messages.map((message)=> {
-       // console.log('message and selected user', message, selectedUser)
+       
 
         if (message.sender){
-        if (message.reciever.userid === selectedUser.userid || message.sender.senderId === selectedUser.userid){
+        if (message.reciever === selectedUser.userid || message.sender === selectedUser.userid){
     newselectMessages.push(message)
     }}
        
@@ -80,7 +80,9 @@ return (
 
             {// This is the messages column. Shows previous messages and messages being sent
             }
-            <Chats selectedUser={selectedUser} selectMessages={selectMessages} newMessage={newMessage} setNewMessage={setNewMessage} handleclicksend={handleclicksend}/>
+            <Chats selectedUser={selectedUser} selectMessages={selectMessages} newMessage={newMessage} setNewMessage={setNewMessage} handleclicksend={handleclicksend}
+            Online = { onlineUsers }
+            />
 
 
             {// This is the selected users info. It shows the information about the user selected.

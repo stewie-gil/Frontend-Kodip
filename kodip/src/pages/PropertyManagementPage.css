@@ -1,0 +1,47 @@
+.property-management-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .property-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .property-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .property-field {
+    margin-bottom: 10px;
+  }
+  
+  .property-field label {
+    font-weight: bold;
+  }
+  
+  .property-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Additional CSS for edited fields */
+  .property-field input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .property-field input[type="text"]:focus {
+    border-color: #007bff;
+  }
+  

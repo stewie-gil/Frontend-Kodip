@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './searchbar.css';
+import useOnSearch from '../hooks/useSearch';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
   const [priceRange, setPriceRange] = useState('');
 
+  //const [onSearch, setOnSearch] = useOnSearch()
   const handleSearch = () => {
     // Perform search based on the selected criteria
     const searchCriteria = {
@@ -15,7 +17,7 @@ const SearchBar = ({ onSearch }) => {
     };
 
     // Pass the search criteria to the parent component or perform the search directly
-    onSearch(searchCriteria);
+    //mapSearch(searchCriteria);
   };
 
   return (
