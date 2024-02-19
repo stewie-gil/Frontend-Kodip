@@ -1,133 +1,126 @@
 .property-form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input[type="text"],
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .verify-button {
-    padding: 10px 15px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .note {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .toggle-button {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .toggle-button input {
-    display: none;
-  }
-  
-  .toggle-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    border-radius: 34px;
-    cursor: pointer;
-  }
-  
-  .toggle-label:before {
-    content: '';
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    top: 4px;
-    left: 4px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  
-  .toggle-button input:checked + .toggle-label {
-    background-color: #4caf50;
-  }
-  
-  .toggle-button input:checked + .toggle-label:before {
-    transform: translateX(26px);
-  }
-  
-  .inquiries-options {
-    margin-top: 15px;
-  }
-  
-  .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .checkbox-group input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  /* Existing CSS styles */
+  max-width: 600px;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  position: relative;
+  margin: 50px auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
 .verify-button,
 .add-photos-button {
-  padding: 10px 15px;
-  margin-top: 10px;
+  padding: 10px 20px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .add-photos-button {
   background-color: #28a745;
 }
 
-/* Additional CSS for the verification code input */
+.verify-button:hover,
+.add-photos-button:hover {
+  background-color: #0056b3;
+}
 
-/* Existing CSS styles */
+.note {
+  font-size: 14px;
+  color: #666;
+}
+
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-button input {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.toggle-label:before {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 4px;
+  left: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.toggle-button input:checked + .toggle-label {
+  background-color: #4caf50;
+}
+
+.toggle-button input:checked + .toggle-label:before {
+  transform: translateX(26px);
+}
+
+.inquiries-options {
+  margin-top: 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+}
 
 .toggle-more-description {
-    margin-top: 15px;
-  }
-  
-  .more-description {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  .more-description .form-group {
-    margin-bottom: 15px;
-  }
-  
+  margin-top: 15px;
+}
+
+.more-description {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.more-description .form-group {
+  margin-bottom: 20px;
+}

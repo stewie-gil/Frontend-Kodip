@@ -4,7 +4,7 @@ const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
   const [overlay, setOverlay] = useState(false);
-  const [onSearch, setOnSearch] = useState('');
+  const [onSearch, setOnSearch] = useState([]);
 
   return (
     <AppContext.Provider value={{ overlay, setOverlay, onSearch, setOnSearch}}>

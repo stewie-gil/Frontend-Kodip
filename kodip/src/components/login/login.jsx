@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import { useSocketContext } from '../../hooks/useSocketContext.js';
 import { AuthContext } from '../../context/AuthProvider.js';
@@ -53,15 +54,33 @@ const handleClose = () => {setModalOpen(false);};
                 <div>
           <div className="dropdownContainer">
             {!showDropdown && <button onClick={toggleDropdownTrue} className="text" style={{fontSize: '18px'}}>
-              Welcome {localStorage.username} 😊!
+            
+            {localStorage.profilepic ? (
+        <img src={localStorage.profilepic} alt="Profile" className="profile-pic-login" />
+      ) :  (
+        <div className="profile-initial"> {localStorage.username.charAt(0).toUpperCase()}</div>
+      )}
+
             </button>}
 
             {showDropdown && <button onClick={toggleDropdownFalse} className="text" style={{fontSize: '18px'}}>
-              Welcome {localStorage.username} 😊!
+            
+            {localStorage.profilepic ? (
+        <img src={localStorage.profilepic} alt="Profile" className="profile-pic-login" />
+      ) : (
+        <div className="profile-initial">{localStorage.username.charAt(0).toUpperCase()}</div>
+      )}
+
             </button>}
 
             {showDropdown && (
               <div className="dropdownMenu">
+                <button  className="text" style={{fontSize: '12px'}}>
+                  
+                  <Link to="/profile"> Profile </Link>
+                </button>
+                <br/>
+
                 <button onClick={handleLogout} className="text" style={{fontSize: '12px'}}>
                   Logout?
                 </button>

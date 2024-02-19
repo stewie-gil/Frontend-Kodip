@@ -144,21 +144,13 @@ input:focus {
   margin-top: 6px;
   color: rgb(0, 3, 12);
   background-color: #55efa0;
-  border: none;
-  padding: 10px 20px;
-  font-size: 22px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 3px 18px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 2px 15px rgba(17,152,194,.5);
   margin-right: 14px;
-  z-index: 2;
-  position:relative;
+  position: relative;
   left: 0px;
   z-index: 3;
- 
-  width:120px;
 }
 .text:hover {
   background-color: rgba(5, 255, 26, 0.774);
@@ -173,6 +165,25 @@ input:focus {
   transform: scale(0.95);
 }
 
+.profile-pic-login{
+  /* Add styles for the profile picture */
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+.profile-initial {
+  /* Add styles for the profile initials */
+  width: 100px; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it circular */
+  background-color: #ccc; /* Add background color */
+  display: flex; /* Use flexbox to center the text */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #fff; /* Text color */
+}
 
 
 

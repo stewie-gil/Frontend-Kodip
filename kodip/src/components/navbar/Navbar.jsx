@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 import "./navbar.css";
 import { ArrowDown2, CloseSquare, HambergerMenu } from "iconsax-react";
@@ -17,15 +18,21 @@ const Navbar = () => {
 
   const navLink = [
     {
-      name: "Connect with a local",
-      link: "",
+      name: "map",
+      link: "/map",
       icon: "",
     },
     {
-      name: "List Your Property",
-      link: "",
+      name: "listings",
+      link: "/listings",
       icon: "",
     },
+    {
+      name: "Connect with a local",
+      link: "/connect",
+      icon: "",
+    },
+    
    
   ];
 
@@ -47,14 +54,18 @@ const Navbar = () => {
             return (
               <ul key={idx}>
                 <li className= 'undefined'>
-                  {item.name} {item.icon}
+                <Link to={item.link}>{item.name}</Link> {item.icon}
                  
                 </li>
               </ul>
             );
           })
           }
-        <LoginForm/>  
+       
+        <Link to="/map">  <ListProperty/></Link> 
+        <LoginForm/> 
+
+        
         </div>
       </div>
 

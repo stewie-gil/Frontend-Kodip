@@ -1,12 +1,39 @@
 .profile-form-container {
-  max-width: 600px;
-  margin: 0 auto;
+ 
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #b3e7080f;
+  background-color: #07fc0b13;
+  position:relative
 }
 
+.profilepic-name {
+  width: 200px;
+    height: 200px;
+    background: #7fffd482;
+    box-shadow: 0 2px 18px rgb(0 0 0 / 56%);
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding : 10px;
+}
+
+.changepic {
+position: absolute;
+    top: 30px;
+    left: 26px;
+    font-size: small;
+    background: #00000040;
+    width: 83px;
+    height: 84px;
+    border-radius: 50%;
+    color: greenyellow;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+ 
 .profile-form-container h2 {
   font-size: 32px;
   color: #333;
@@ -15,7 +42,7 @@
 }
 
 .form-group {
-  margin-bottom: 30px;
+  margin: 30px;
 }
 
 label {
@@ -29,11 +56,12 @@ label {
 input[type='text'],
 input[type='email'],
 input[type='tel'] {
-  width: 100%;
-  padding: 12px;
+  
+  padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+ 
 }
 
 input[type='file'] {
@@ -58,4 +86,12 @@ button[type='submit'] {
 
 button[type='submit']:hover {
   background-color: #0056b3;
+}
+
+.password-input-container{
+  width: 30vw;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }

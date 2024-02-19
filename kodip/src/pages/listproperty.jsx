@@ -16,6 +16,7 @@ const PropertyForm = () => {
   const [bathrooms, setBathrooms] = useState('');
   const [measurement, setMeasurement] = useState('');
   const [description, setDescription] = useState('');
+  const [images, setImages] = useState([]); // For storing uploaded images
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -33,14 +34,42 @@ const PropertyForm = () => {
       code,
       bedrooms,
       bathrooms,
-      measurement
+      measurement,
+      description,
+      images
     });
+    // Reset form fields after submission if needed
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setPropertyType('');
+    setPrice('');
+    setPhoneNumber('');
+    setReceiveInquiries(false);
+    setReceiveAppInbox(true);
+    setReceiveMobileMessage(false);
+    setReceiveWhatsapp(false);
+    setReceiveEmail(false);
+    setCode('');
+    setShowMoreDescription(false);
+    setBedrooms('');
+    setBathrooms('');
+    setMeasurement('');
+    setDescription('');
+    setImages([]);
   };
 
   const handleVerifyClick = () => {
     // Here you can handle verification process
     // For simplicity, let's just set the state to true
     setCode('123456'); // Mock OTP for demonstration
+  };
+
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    // Store uploaded images in state
+    setImages(files);
   };
 
   return (
@@ -119,7 +148,10 @@ const PropertyForm = () => {
               <label htmlFor="measurement">Measurement (sq ft):</label>
               <input type="number" id="measurement" value={measurement} onChange={(e) => setMeasurement(e.target.value)} />
             </div>
-            {/* You can add more form fields/icons for additional property details here */}
+            <div className="form-group">
+              <label htmlFor="images">Property Photos:</label>
+              <input type="file" id="images" accept="image/*" onChange={handleImageUpload} multiple required />
+            </div>
           </div>
         )}
         <button type="submit" className="add-photos-button">Add Property Photos</button>

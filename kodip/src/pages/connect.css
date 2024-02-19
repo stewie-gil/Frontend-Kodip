@@ -1,65 +1,103 @@
 .connectPage {
-    justify-content: center;
-    margin: 0 auto;
-    padding: 20px;
-    margin-bottom: 140px;
-    top: 140px;
-   position: relative;
-   display: flex;
-    border-radius: 5px;
-    background-color: #f9f9f928;
-  }
-
-  .heroText{
-    padding:20px
-  }
-  
-  .map {
-    width: 550px;
-    height: 300px;
-    position: relative;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 80px;
 }
 
-.map {
- margin-bottom: 20px;
+.connectFormContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: row-reverse;
 }
 
-  .connect-with-owner-form h2 {
-    margin-top: 0;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .note {
-    font-style: italic;
-    color: #666;
-  }
-  
+.connectForm {
+  flex: 0 1 50%;
+  padding: 20px;
+  background-color: #aef9c157;
+  border-radius: 10px;
+}
+
+.connectForm h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.locationInput {
+  display: flex;
+  align-items: center;
+}
+
+.locationIcon {
+  margin-left: -30px;
+  margin-right: 10px;
+  color: #999;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.connectButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.connectButton:hover {
+  background-color: #0056b3;
+}
+
+.mapContainer {
+  flex: 0 1 50%;
+  height: 300px;
+  margin-left: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.appreciationSection {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.coffeeButton {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.coffeeButton:hover {
+  background-color: #218838;
+}
+
+.note {
+  margin-top: 20px;
+  font-style: italic;
+  color: #777;
+}
+

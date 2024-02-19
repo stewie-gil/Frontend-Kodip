@@ -7,8 +7,10 @@ import Map from "./pages/Map";
 import Listings from "./pages/Listings";
 import ListProperty from "./pages/listproperty";
 import Profile from "./pages/profileSettings";
-import Manage from "./pages/management";
+import Manage from "./pages/PropertyManagement";
 import Connect from "./pages/connect"
+import PostListPage from "./ConnectPage/PostListPage";
+import PostDetailsPage from "./ConnectPage/PostDetailsPage";
 
 function App(){
 
@@ -30,6 +32,9 @@ function App(){
           <Route path= "profile" element={<Profile/>}/>
           <Route path= "manage" element={<Manage/>}/>
           <Route path= "connect" element={<Connect/>}/>
+
+          <Route path= "connectpage" element={<PostListPage/>}/>
+          <Route path= "posts/:postId" element={<PostDetailsPage/>} /> {/* Route for post details */}
 
           <Route path="*" element={<Nopage />} />
         </Route>

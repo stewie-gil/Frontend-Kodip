@@ -1,58 +1,50 @@
 import React, { useState } from 'react';
 import './ListProperty.css'
+import { Link } from "react-router-dom";
 
 export default function ListProperty(){
-const [connectModal, setConnectModal] = useState(false)
+const [listPropertyModal, setlistPropertyModal] = useState(false)
     
 const handleModalOpen = ()=>{
 
-if (connectModal == false){
-    setConnectModal(true)
+if (listPropertyModal == false){
+  setlistPropertyModal(true)
 } else{
-    setConnectModal(false)
+  setlistPropertyModal(false)
 }
 }
 
 
-const handleSubmitConnect = ()=>{ }
-    
+return (
+  <>
+    <div>
+      <button onClick={handleModalOpen} className="listPropertybtn">List Property</button>
+    </div>
 
-
-
-
-
-
-    return (
-        <> 
-        <div> 
-        <button onClick={handleModalOpen} className="connect">List Property</button>
+    {listPropertyModal && (
+      <div className="listPropertymodal">
+        <div className="listPropertymodal-content">
+          <span className="close" onClick={handleModalOpen}>&times;</span>
+          <h4>Posting your property is easy. Just 3 steps:</h4>
+          <ol>
+            <li>Search on the map for your Property.</li>
+            <li>Click on the property and fill out your details of your property on the popup.</li>
+            <li>Click submit!</li>
+            
+          </ol>
+          <>* Click here to learn more!</>
         </div>
-     
-     {connectModal &&
-        <form onSubmit={handleSubmitConnect} className="form">
-        <p style = {{fontWeight: 'bold'}}> Welcome back! Login with your details below 😊! </p>
-          <input
-            type="email"
-            placeholder="Email"
-            
-            
-            className="input"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-           
-            
-            className="input"
-          />
-          <button type="submit" className="button" >Log in</button>
-          <button  className="button">Sign Up</button>
-        
-        </form>
-        
-     } 
-     
-     
-     </>
 
-)}
+        <div>
+      <button className="listPropertybtn"> <Link to="/manage"> Manage Property </Link></button>
+      
+    </div>
+      </div>
+
+      
+    )}
+  </>
+);
+
+    
+}

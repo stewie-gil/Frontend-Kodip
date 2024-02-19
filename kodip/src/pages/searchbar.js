@@ -7,7 +7,8 @@ const SearchBar = () => {
   const [propertyType, setPropertyType] = useState('');
   const [priceRange, setPriceRange] = useState('');
 
-  //const [onSearch, setOnSearch] = useOnSearch()
+  const {onSearch, setOnSearch} = useOnSearch()
+
   const handleSearch = () => {
     // Perform search based on the selected criteria
     const searchCriteria = {
@@ -17,7 +18,7 @@ const SearchBar = () => {
     };
 
     // Pass the search criteria to the parent component or perform the search directly
-    //mapSearch(searchCriteria);
+    setOnSearch(searchCriteria);
   };
 
   return (
