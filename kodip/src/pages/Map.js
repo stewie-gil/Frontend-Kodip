@@ -1,15 +1,15 @@
 import React from  'react';
-import BingMap from '../MapPage_Components/bingmap';
-import SideBar from '../MapPage_Components/sidebar';
-import SearchBar from './searchbar';
+import BingMap from '../components/MapPage_Components/bingmap/bingmap';
+import SideBar from '../components/MapPage_Components/sidebar/sidebar';
 
 
-console.log('Map render')
+
+
 const Map = ()=>{
 
   return (
     <div>
- <SearchBar/>
+ 
   <SideBar/>
   <BingMap/>
 

@@ -53,6 +53,7 @@
   position: relative;
   overflow: auto;
   z-index: 3;
+  min-height:400px;
 }
 
 .overlay {
@@ -89,8 +90,8 @@
     z-index: 2;
 }
 
-.button1 {
-  width: 80px;
+.nav-button-style {
+ min-width: 80px;
   padding: 10px;
   margin-bottom: 10px;
   background-color: #55efa0;
@@ -102,6 +103,10 @@
   z-index: 2;
  
   top:0px;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
 
 
   box-shadow: 0 2px 15px rgba(17,152,194,.5);
@@ -109,6 +114,7 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
+  text-decoration: none !important
   
 }
 

@@ -42,7 +42,7 @@ const handleClose = () => {setModalOpen(false);};
     <div >
         {/* If user is not logged in activitate the modal using handleclick */}
       {!login && (
-        <button onClick={handleClick} className="button1">Login</button>
+        <button onClick={handleClick} className="nav-button-style">Login</button>
       )}
 
         {/* If user is logged show a button with the users name 

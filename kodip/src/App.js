@@ -2,15 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import React,{useEffect} from 'react';
 import LandingPage from "./pages/LandingPage";
 import Nopage from "./pages/Nopage";
-import Layout from "./components/layout/Layout";
+import Layout from "./components/LandingPage/layout/Layout";
 import Map from "./pages/Map";
 import Listings from "./pages/Listings";
-import ListProperty from "./pages/listproperty";
+import ListProperty from "./components/Listings/listproperty";
 import Profile from "./pages/profileSettings";
 import Manage from "./pages/PropertyManagement";
-import Connect from "./pages/connect"
+import Connect from "./components/ConnectPage/connect"
 import PostListPage from "./ConnectPage/PostListPage";
-import PostDetailsPage from "./ConnectPage/PostDetailsPage";
+import PostDetailsPage from "./components/ConnectPage/PostDetailsPage";
 
 function App(){
 

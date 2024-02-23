@@ -1,0 +1,57 @@
+.Infobox {
+    border: unset !important
+}
+
+.infoboximage{
+    border-radius: 10px;
+}
+.infobox-title{
+    display:none;
+}
+.infobox-stalk{
+    top:215.8px !important
+}
+
+.infobox-body{
+
+    max-width: 256px;
+    
+}
+.infobox-info{
+    max-height:none
+}
+.MicrosoftMap .Infobox {
+    position: relative;
+    border: 1px solid #888;
+    border-radius: 8px;
+    left: 0;
+    bottom: 117px;
+    pointer-events: auto;
+    background-color: #fff;
+    }
+.NavBar_Container{
+top: 50vh !important
+}
+.post-property-modal {
+
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+    position: absolute;
+    z-index: 3;
+    
+}
+.close-propertyform{
+
+
+float: right;
+font-size: 45px;
+font-weight: bold;
+cursor: pointer;
+top: 51px;
+position: relative;
+z-index: 1;
+right: 10px;
+}

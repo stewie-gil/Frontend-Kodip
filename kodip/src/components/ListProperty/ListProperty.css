@@ -10,6 +10,37 @@
 }
 
 
+
+.nav-button-style {
+  min-width: 80px;
+   padding: 10px;
+   margin-bottom: 10px;
+   background-color: #55efa0;
+   color: black;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   position: relative;
+   z-index: 2;
+  
+   top:0px;
+   justify-content: center;
+   align-items: center;
+ 
+   display: flex;
+   
+ 
+   box-shadow: 0 2px 15px rgba(17,152,194,.5);
+   color: #00030c;
+   cursor: pointer;
+   font-size: 14px;
+   font-weight: 700;
+   
+ }
+ 
+ 
+
+
 .listPropertymodal {
   display: block;
   z-index: 1;
@@ -19,10 +50,12 @@
 }
 
 .listPropertymodal-content {
-  background-color: #fefefe;
+  background-color: #55efa0;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #fdfffd00;
   border-radius: 10px;
+  box-shadow: 0 2px 15px #00000078;
+  position: absolute;
 }
 
 .close {

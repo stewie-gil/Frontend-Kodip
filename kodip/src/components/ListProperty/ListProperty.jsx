@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function ListProperty(){
 const [listPropertyModal, setlistPropertyModal] = useState(false)
+const [hasListedProperties, setHasListedProperties] = useState(false)
     
 const handleModalOpen = ()=>{
 
@@ -11,24 +12,43 @@ if (listPropertyModal == false){
   setlistPropertyModal(true)
 } else{
   setlistPropertyModal(false)
+ 
 }
 }
+
+
+
+
+
 
 
 return (
   <>
     <div>
-      <button onClick={handleModalOpen} className="listPropertybtn">List Property</button>
-    </div>
+{hasListedProperties && (
+  <button className="nav-button-style"> <Link to="/manage"> Manage Property </Link></button>
+)}
+</div>
 
-    {listPropertyModal && (
-      <div className="listPropertymodal">
+
+
+<div>
+{!hasListedProperties && (
+
+  <button onClick={handleModalOpen} className="nav-button-style">List Property</button>
+)
+}
+ </div>     
+    
+
+ {listPropertyModal && !hasListedProperties && (
+      <div className="">
         <div className="listPropertymodal-content">
           <span className="close" onClick={handleModalOpen}>&times;</span>
-          <h4>Posting your property is easy. Just 3 steps:</h4>
+          <h4>Posting your in 3 easy steps:</h4>
           <ol>
             <li>Search on the map for your Property.</li>
-            <li>Click on the property and fill out your details of your property on the popup.</li>
+            <li>Click and hold on the property for 1-2 seconds, then fill out your details in the popup.</li>
             <li>Click submit!</li>
             
           </ol>
@@ -36,7 +56,7 @@ return (
         </div>
 
         <div>
-      <button className="listPropertybtn"> <Link to="/manage"> Manage Property </Link></button>
+      
       
     </div>
       </div>

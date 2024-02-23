@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import './searchbar.css';
 import useOnSearch from '../hooks/useSearch';
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearchLocation } from '@fortawesome/free-solid-svg-icons';
+
 const SearchBar = () => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
@@ -23,7 +27,7 @@ const SearchBar = () => {
 
   return (
     <div className= 'EntireSearchBar'>
-    <div className="search-bar">
+    <div className="desktop-search-bar">
       <input
         type="text"
         placeholder="Enter Location"
@@ -51,6 +55,27 @@ const SearchBar = () => {
       </select>
 
       <button onClick={handleSearch}>Search</button>
+    </div>
+
+
+
+
+    <div className="mobile-search-bar">
+      
+    <button className='search-icon' onClick={handleSearch}> <FontAwesomeIcon icon={faSearchLocation} />
+        </button>
+
+      <input
+      
+        type="text"
+        placeholder="Enter Location"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+      />
+
+      
+
+      
     </div>
     </div>
   );
