@@ -4,11 +4,13 @@ import SearchBar from './searchbar';
 import PropertyListings from '../components/Listings/PropertyListings';
 import SideBar from '../components/MapPage_Components/sidebar/sidebar';
 
+import HouseTypeBar from './HouseTypeBar';
+
 const Listings = ()=>{
 
   return (
     <div >
-    <SearchBar/>
+    <HouseTypeBar/>
     <SideBar/>
     <PropertyListings/>
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './mapfile.css';
 import './bingmap.css';
 import useOnSearch from "../../../hooks/useSearch";
-import PropertyForm from "../../Listings/listproperty";
+import PropertyForm from "../listproperty";
 
 function MapComponent() {
   const [infoboxLocation, setInfoboxLocation] = useState(null);

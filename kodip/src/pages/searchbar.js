@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './searchbar.css';
 import useOnSearch from '../hooks/useSearch';
+import { useLocation } from 'react-router-dom';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,7 @@ const SearchBar = () => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
   const [priceRange, setPriceRange] = useState('');
+  const locationPath = useLocation().pathname;
 
   const {onSearch, setOnSearch} = useOnSearch()
 
@@ -24,6 +26,10 @@ const SearchBar = () => {
     // Pass the search criteria to the parent component or perform the search directly
     setOnSearch(searchCriteria);
   };
+
+  if (locationPath !== '/map' && locationPath !== '/listings') {
+    return null; 
+  }
 
   return (
     <div className= 'EntireSearchBar'>

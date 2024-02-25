@@ -1,5 +1,5 @@
-.desktop-search-bar {
-    
+
+.desktop-search-bar {    
   display: none;
   
 }
@@ -9,10 +9,6 @@
 
 
 .desktop-search-bar {
-
-
-
-
   background-color: whitesmoke;
   position: absolute;
   z-index: 4;
@@ -20,14 +16,14 @@
   justify-content: center;
   display: flex;
   top: 5px;
-  left: 0px ;
+ 
   border-radius: 20px;
 
 
 padding:10px;
   
     gap: 1px;
-    margin: 7px;
+    
   }
   
   .search-bar input,

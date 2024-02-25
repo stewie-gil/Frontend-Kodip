@@ -1,0 +1,35 @@
+.house-type-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    top:100px;
+    position:absolute;
+
+    left: 20vw;
+    width: 50vw;
+  }
+  
+  .house-type-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .house-type-icon.selected {
+    color: blue; /* Change color for selected icon */
+  }
+  
+  .house-type-icon:hover {
+    color: darkblue; /* Change color on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .house-type-bar {
+      flex-wrap: wrap;
+    }
+  }
+  

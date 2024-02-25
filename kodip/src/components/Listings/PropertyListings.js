@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './PropertyListing.css';
 import Modal from 'react-modal';
 import Imageapp from './Imageapp';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function PropertyListing({ listings }) {
@@ -13,11 +15,18 @@ function PropertyListing({ listings }) {
   const [selectedImagePropertyContact, setSelectedImagePropertyContact] = useState('');
   const [selectedImagePropertyUrl, setSelectedImagePropertyUrl] = useState('');
   const [selectedImagePropertyAmenities, setselectedImagePropertyAmenities] = useState('');
+  const [likedImages, setLikedImages] = useState([]);
 
   const position = [51.505, -0.09];
 
   const openModal = (image) => {
     setSelectedImage(image);
+  };
+
+  const handleLike = (index) => {
+    const newLikedImages = [...likedImages];
+    newLikedImages[index] = !newLikedImages[index];
+    setLikedImages(newLikedImages);
   };
 
   useEffect(() => {
@@ -228,28 +237,32 @@ function PropertyListing({ listings }) {
     <div className='PropertyListingCss'>
         
       {/* Render the property listings */}
-      {propertylistings.map((listing) => (
-        <div key={listing.id} className='listingCard'>
-
-          {
-            //console.log("image urls look like this", listing.imageUrls[0])
-          }
-          <img
-            src={listing.imageUrls[0]}
-            alt={listing.title}
-            className='listingImage'
-            onClick={() => openModal(listing)}
-          />
-          <div className='listingImagedescription'>
-            <p>{listing.propertyName}</p>
-            
-            <div className='listingImagedescriptioncity'>
-              <p>{listing.location}</p>
-              <p>ksh {listing.price}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+      {propertylistings.map((listing, index) => (
+  <div key={index} className='listingCard'>
+    {
+      //console.log("image urls look like this", listing.imageUrls[0])
+    }
+    <img
+      src={listing.imageUrls[0]}
+      alt={listing.title}
+      className='listingImage'
+      onClick={() => openModal(listing)}
+    />
+    
+    <div key={index} className='heart-icon' onClick={() => handleLike(index)}>
+      <FontAwesomeIcon icon={faHeart} color={likedImages[index] ? 'red' : 'grey'} />
+    </div>
+    
+    <div className='listingImagedescription'>
+      <p>{listing.propertyName}</p>
+      
+      <div className='listingImagedescriptioncity'>
+        <p>{listing.location}</p>
+        <p>ksh {listing.price}</p>
+      </div>
+    </div>
+  </div>
+))}
 
       <Modal
         isOpen={selectedImage !== null}

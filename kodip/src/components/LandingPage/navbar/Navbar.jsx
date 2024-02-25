@@ -50,7 +50,6 @@ const Navbar = () => {
           <SearchBar/>
         </div>
 
-        
 
         <div className="nav-links">
         

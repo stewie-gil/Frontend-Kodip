@@ -5,11 +5,11 @@ import Nopage from "./pages/Nopage";
 import Layout from "./components/LandingPage/layout/Layout";
 import Map from "./pages/Map";
 import Listings from "./pages/Listings";
-import ListProperty from "./components/Listings/listproperty";
+import ListProperty from "./components/MapPage_Components/listproperty";
 import Profile from "./pages/profileSettings";
 import Manage from "./pages/PropertyManagement";
 import Connect from "./components/ConnectPage/connect"
-import PostListPage from "./ConnectPage/PostListPage";
+import PostListPage from "./components/ConnectPage/PostListPage";
 import PostDetailsPage from "./components/ConnectPage/PostDetailsPage";
 
 function App(){
