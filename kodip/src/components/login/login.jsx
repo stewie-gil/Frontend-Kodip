@@ -58,7 +58,9 @@ const handleClose = () => {setModalOpen(false);};
             {localStorage.profilepic ? (
         <img src={localStorage.profilepic} alt="Profile" className="profile-pic-login" />
       ) :  (
-        <div className="profile-initial"> {localStorage.username.charAt(0).toUpperCase()}</div>
+        <div className="profile-initial">
+  {localStorage.username ? localStorage.username.charAt(0).toUpperCase() : ''}
+</div>
       )}
 
             </button>}
@@ -68,7 +70,9 @@ const handleClose = () => {setModalOpen(false);};
             {localStorage.profilepic ? (
         <img src={localStorage.profilepic} alt="Profile" className="profile-pic-login" />
       ) : (
-        <div className="profile-initial">{localStorage.username.charAt(0).toUpperCase()}</div>
+        <div className="profile-initial">
+  {localStorage.username ? localStorage.username.charAt(0).toUpperCase() : ''}
+</div>
       )}
 
             </button>}
