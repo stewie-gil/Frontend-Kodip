@@ -59,6 +59,12 @@
     align-self: flex-start;
     gap: 16px;
 }
+
+.hero-input input[type='text']{
+    border-radius: 0;
+    border-color: transparent;
+
+}
 .hero-input input{
     width: 80%;
 }

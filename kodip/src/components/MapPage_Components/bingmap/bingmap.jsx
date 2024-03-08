@@ -6,6 +6,12 @@ import './bingmap.css';
 import useOnSearch from "../../../hooks/useSearch";
 import PropertyForm from "../listproperty";
 
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import ReactDOMServer from 'react-dom/server';
+
+
 function MapComponent() {
   const [infoboxLocation, setInfoboxLocation] = useState(null);
   const [infoboxVisible, setInfoboxVisible] = useState(false);
@@ -31,20 +37,127 @@ function MapComponent() {
 
   // Static pushpin data with infobox for Nairobi
   const image = 'https://images.unsplash.com/photo-1623298317883-6b70254edf31?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-  const pushpin = [
+  
+  const pushpins = [
+   
     {
-      location: [latitudeNairobi2, longitudeNairobi2],
+      location: [-1.286389, 36.817223],
       addHandler: "click",
-      infoboxOption: {
-        title: "Kitengela Heights",
+      infoboxOption: { 
+        title: "Location 1",
         description: `<div>
           <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
           <p>Message owners</p>
           <p>View photos</p>
         </div>`,
       },
-      pushPinOption: { color: 'black', title: 'Nairobi Location 2' },
-    }
+      pushPinOption: { color: 'black', title: 'Location 1' },
+    },
+    
+    {
+      location: [-1.3032, 36.5671],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 3",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 3' },
+    },
+    {
+      location: [-1.3117, 36.8341],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 4",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 4' },
+    },
+    {
+      location: [-1.2769, 36.7965],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 5",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 5' },
+    },
+    {
+      location: [-1.2861, 36.8211],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 6",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 6' },
+    },
+    {
+      location: [-1.3187, 36.8282],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 7",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 7' },
+    },
+    {
+      location: [-1.2833, 36.8167],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 8",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 8' },
+    },
+    {
+      location: [-1.2632, 36.8326],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 9",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 9' },
+    },
+    {
+      location: [-1.2966, 36.8219],
+      addHandler: "click",
+      infoboxOption: { 
+        title: "Location 10",
+        description: `<div>
+          <img src="${image}" alt="Image Alt Text" class='infoboximage' style="max-width: 100%; height: auto;" />
+          <p>Message owners</p>
+          <p>View photos</p>
+        </div>`,
+      },
+      pushPinOption: { color: 'black', title: 'Location 10' },
+    },
   ];
 
 
@@ -127,7 +240,7 @@ function MapComponent() {
       <ReactBingmaps
         bingmapKey={mapOptions.credentials}
         center={infoboxLocation ? [infoboxLocation.latitude, infoboxLocation.longitude] : mapOptions.center}
-        infoboxesWithPushPins={pushpin}
+        infoboxesWithPushPins={pushpins}
         style={{ width: "100%", height: "100%", position: 'absolute' }}
         
         getLocation={getLocation}

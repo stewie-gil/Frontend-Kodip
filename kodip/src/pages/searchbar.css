@@ -16,6 +16,7 @@
   justify-content: center;
   display: flex;
   top: 5px;
+  left:100px;
  
   border-radius: 20px;
 
@@ -26,14 +27,14 @@ padding:10px;
     
   }
   
-  .search-bar input,
-  .search-bar select {
+  .desktop-search-bar input,
+  .desktop-search-bar select {
     padding: 8px;
     
     border-radius: 4px;
   }
   
-  .search-bar button {
+  .desktop-search-bar button {
     padding: 20px;
    
    
@@ -45,9 +46,11 @@ padding:10px;
     color: #000;
   }
   
-  .search-bar button:hover {
+  .desktop-search-bar button:hover {
     background-color: #45a049;
   }
+  
+  
 
 }
 

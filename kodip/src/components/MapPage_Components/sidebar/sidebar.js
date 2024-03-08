@@ -4,15 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { faTowerBroadcast } from '@fortawesome/free-solid-svg-icons';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import MessageApp from '../message/Envelope.js';
 import { useSocketContext } from '../../../hooks/useSocketContext.js';
+import { useLocation } from 'react-router-dom';
 
 const SideBar = () => {
   const [openEnvelope, setOpenEnvelope] = useState(false);
   const { onlineUsers, send, setMessages, messages, readnotification } = useSocketContext();
+  const locationPath = useLocation().pathname;
 
   console.log('sidebar render');
 
@@ -34,21 +36,33 @@ const SideBar = () => {
             <FontAwesomeIcon icon={faHouse} className='icons' />
           </Link>
           <Link to="/map"> 
-            <FontAwesomeIcon icon={faMapLocationDot} className='icons' />
+            <FontAwesomeIcon icon={faMapLocationDot} 
+             className={`icons ${locationPath == '/map' ? 'active' : ''}`} 
+            
+            />
           </Link>
+
           <FontAwesomeIcon 
             icon={faEnvelope} 
             className={`icons ${openEnvelope ? 'active' : ''}`} 
             onClick={handleClickEnvelope}
           />
+
           <Link to="/listings"> 
             <FontAwesomeIcon 
               icon={faBuilding} 
-              className={`icons ${messages === 'now' ? 'active' : ''}`} 
-              onClick={handleClickBuilding}
+              className={`icons ${locationPath == '/listings' ? 'active' : ''}`} 
+              
             />
+
           </Link>
-          <FontAwesomeIcon icon={faNewspaper} className='icons' />
+
+          <Link to="/connect"> 
+          <FontAwesomeIcon 
+          icon={faTowerBroadcast }         
+          className={`icons ${locationPath == '/connect' ? 'active' : ''}`} 
+          /> </Link>
+          
         </div>     
       </div>
       {openEnvelope && <MessageApp/>}

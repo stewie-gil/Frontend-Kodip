@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 import "./navbar.css";
 import { ArrowDown2, CloseSquare, HambergerMenu } from "iconsax-react";
@@ -16,6 +17,7 @@ import SearchBar from '../../../pages/searchbar';
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const { overlay, setOverlay } = useOverlay();
+  const locationPath = useLocation().pathname;
 
   const navLink = [
     {
@@ -47,13 +49,14 @@ const Navbar = () => {
       <div className="nav-bar">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <SearchBar/>
+          
         </div>
 
 
         <div className="nav-links">
         
          {
+          (locationPath == '/' &&        
             navLink.map((item, idx) => {
             return (
               <ul key={idx}>
@@ -63,9 +66,9 @@ const Navbar = () => {
                 </li>
               </ul>
             );
-          })
+          }))   
           }
-       
+       <SearchBar/>
         <Link style={{ textDecoration: 'none', color:'black', }} to="/map">  <ListProperty/></Link> 
         <LoginForm/> 
 
@@ -79,7 +82,7 @@ const Navbar = () => {
           <HambergerMenu onClick={openMenu} />
         </div>
 
-        <SearchBar/>
+        
 
 
         <div className={!menu ? "none" : "mobile-menu"}>

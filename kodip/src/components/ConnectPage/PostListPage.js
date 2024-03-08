@@ -4,6 +4,7 @@ import { faSearch, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import PostCard from './PostCard';
 import './styles.css';
+import SideBar from '../MapPage_Components/sidebar/sidebar';
 
 const samplePosts = [
   {
@@ -39,6 +40,8 @@ const PostListPage = () => {
 
   return (
     <div className="post-list-container">
+      <SideBar/>
+      
       <h1>Local Connect</h1>
       <div className="search-bar">
         <input

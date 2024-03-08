@@ -4,6 +4,7 @@ import landlords from "../../../assets/images/landlords.png";
 import houses from "../../../assets/images/houses.png";
 import fans from "../../../assets/images/thumb1.png";
 import locationImg from "../../../assets/images/location.png";
+import { Link } from "react-router-dom";
 
 import "./hero.css";
 import { ArrowRight2 } from 'iconsax-react';
@@ -14,7 +15,7 @@ const Hero = () => {
     {
       pic: landlords,
       title: "1K+ Landlords",
-      text: "Successfully Getting Home"
+      text: "Successfully Getting Homes"
     },
     {
       pic: houses,
@@ -32,12 +33,16 @@ const Hero = () => {
     <div className='hero'>
       <div className="hero-left">
         <div className="hero-left_gradient"></div>
-        <h1>Your search for the perfect rental ends at <br /> <span>Kodiplus!</span> </h1>
-        <p>Search and connect with local landlords, caretakers, house managers and more via our chat, WhatsApp or sms.</p>
+        <h1>Your search for the perfect rental ends at <br /> <span>KodiSwift</span> </h1>
+        <p>Search and connect with landlords and locals on our Map Interface. You can also choose to recieve rental suggetions via your KodiSwift inbox, WhatsApp or SMS.</p>
+        
         <div className="hero-input">
             <img src={locationImg} alt="location-icon" />
-            <input type="text" placeholder='Where do you want to live? | Type of rental unit? | Price range' />
+            <input type="text" placeholder='Type your wishes away!' />
+
+           <Link to='/map'> 
             <button className='btn'>Search <ArrowRight2 /></button>
+            </Link>
         </div>
       </div>
       <div className="hero-right">

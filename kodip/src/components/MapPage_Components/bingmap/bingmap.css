@@ -55,3 +55,12 @@ position: relative;
 z-index: 1;
 right: 10px;
 }
+
+.custom-icon {
+    font-size: 12px; /* Adjust the font size as needed */
+    color: black;
+    display:none;
+    width: 5 px;
+        height: 5 px
+
+  }

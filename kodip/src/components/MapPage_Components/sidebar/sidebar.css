@@ -1,13 +1,14 @@
 .sidebar{
-       z-index: 3;
+    z-index: 3;
     position: fixed;
-   
     background-color: beige;
-   
-    width: 6.5vh;
+    width: 60px;
     left: 40px;
     top: 20vh;
     border-radius: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
 }
 .allIcons{
@@ -26,8 +27,15 @@
     padding: 25px;
 }
 
+.icons{
+    font-size: 26px;
+      color: #10B981;
+      
+  }
+.icons.active {
+    color: #00ff2d;
 
-  
+}
 
   
 
@@ -59,7 +67,17 @@
         flex-direction: row; /* Display icons horizontally */
     }
 
-  
+    .icons{
+        font-size: 26px;
+          color: #008340;
+          margin-left: 10px;
+      }
+
+    .icons.active {
+        color: #9bf90a;
+    
+    }
+    
       
      
       
